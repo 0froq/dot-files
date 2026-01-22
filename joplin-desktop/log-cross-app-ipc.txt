@@ -1,0 +1,1 @@
+2025-10-07 00:22:04: Starting server using secret key: /Users/oQ/.config/joplin-desktop/ipc_secret_key.txt

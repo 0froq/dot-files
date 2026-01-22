@@ -1,0 +1,43 @@
+{
+    "machine_specific": { "krbn-empty-machine-identifier": { "enable_multitouch_extension": true } },
+    "profiles": [
+        {
+            "complex_modifications": {
+                "parameters": { "basic.simultaneous_threshold_milliseconds": 100 },
+                "rules": [
+                    {
+                        "description": "Pressing j+k simultaneously maps to Escape",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "modifiers": { "optional": ["any"] },
+                                    "simultaneous": [
+                                        { "key_code": "j" },
+                                        { "key_code": "k" }
+                                    ]
+                                },
+                                "to": [{ "key_code": "escape" }],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 58490,
+                        "vendor_id": 13357
+                    },
+                    "ignore": false,
+                    "treat_as_built_in_keyboard": true
+                }
+            ],
+            "name": "Default profile",
+            "selected": true,
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        }
+    ]
+}

@@ -1,0 +1,50 @@
+{
+	"$schema": "https://joplinapp.org/schema/settings.json",
+	"altInstanceId": "",
+	"editor.codeView": true,
+	"locale": "zh_CN",
+	"dateFormat": "YYYY-MM-DD",
+	"ocr.handwrittenTextDriverEnabled": true,
+	"theme": 7,
+	"preferredLightTheme": 6,
+	"preferredDarkTheme": 7,
+	"markdown.plugin.softbreaks": false,
+	"markdown.plugin.typographer": false,
+	"style.editor.fontSize": 20,
+	"style.editor.fontFamily": "YshiPen-ShutiTC",
+	"style.editor.monospaceFontFamily": "Monaspace Radon NF",
+	"ui.layout": {
+		"key": "root",
+		"children": [
+			{
+				"key": "sideBar",
+				"width": 250,
+				"visible": true
+			},
+			{
+				"key": "noteList",
+				"width": 250,
+				"visible": true
+			},
+			{
+				"key": "editor",
+				"visible": true
+			}
+		],
+		"visible": true
+	},
+	"noteVisiblePanes": [
+		"editor",
+		"viewer"
+	],
+	"editor.keyboardMode": "vim",
+	"editor.inlineRendering": true,
+	"editor.imageRendering": true,
+	"editor.highlightActiveLine": true,
+	"editor.legacyMarkdown": false,
+	"api.token": "1df7a031b150b719aee16894adaa6fbb6e5754aec30d3a960e26155887475668a9f8c9341cd98682c73a56beb6e4445e2d823b2b11da19a48b6eb980042827e3",
+	"spellChecker.languages": [
+		"en-US"
+	],
+	"featureFlag.autoUpdaterServiceEnabled": false
+}

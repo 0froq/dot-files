@@ -1,0 +1,37 @@
+# Color Theme
+theme = oq_dark
+
+term = xterm-256color
+
+# Font
+font-family = "LXGW Bright Code TC"
+font-style = Light
+font-style-bold = Medium
+font-synthetic-style = false
+
+font-size = 24
+font-feature = calt, ss03, ss04, ss06, ss07, ss08, ss09, ss10, liga
+
+# Hide mouse
+mouse-hide-while-typing = true
+
+alpha-blending = linear-corrected
+
+# Window
+window-inherit-font-size = false
+window-decoration = none
+window-padding-x = 20
+window-padding-y = 0
+window-padding-balance = false
+window-padding-color = background
+
+split-divider-color = darkgrey
+window-save-state = always
+# Close comfirm
+confirm-close-surface = false
+
+# Key
+macos-option-as-alt = true
+keybind = global:cmd+;=toggle_quick_terminal
+# keybind = alt+t>Backslash=new_split:right
+# keybind = alt+t>shift+Backslash=new_split:down

@@ -1,0 +1,53 @@
+unmapAll
+
+# Modes
+map i enterInsertMode
+map V enterVisualLineMode
+map v enterVisualMode
+
+map gi focusInput
+
+# Basic oparations
+map yy copyCurrentUrl
+map r reload
+map h scrollLeft
+map j scrollDown
+map k scrollUp
+map l scrollRight
+map gg scrollToTop
+map G scrollToBottom
+
+# Search
+map / enterFindMode
+map * findSelected
+map # findSelectedBackwards
+map n performFind
+map N performBackwardsFind
+
+# Links oparations
+map SS LinkHints.activateMode
+map sy LinkHints.activateModeToCopyLinkUrl
+map sS LinkHints.activateModeToOpenInNewForegroundTab
+map ss LinkHints.activateModeToOpenInNewTab
+
+# Open copied URL
+map P openCopiedUrlInCurrentTab
+map p openCopiedUrlInNewTab
+
+# List opened tabs
+map <space><space> Vomnibar.activateTabSelection
+
+# Marks
+map m Marks.activateCreateMode
+map ` Marks.activateGotoMode
+
+# Vomnibar
+map o Vomnibar.activateInNewTab
+map O Vomnibar.activate
+
+# Tabs navigation
+map H previousTab
+map L nextTab
+map dd removeTab
+map u restoreTab
+map A createTab
