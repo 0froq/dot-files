@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # File Name: .zshrc
-# Last Modified: 2026-01-21 12:14:06
-# Line Count: 234
+# Last Modified: 2026-01-23 16:36:16
+# Line Count: 298
 #
 # Main Zsh Configuration
 
@@ -190,6 +190,70 @@ function y() {
 # =============================================================================
 # 7. ALIASES & FUNCTIONS
 # =============================================================================
+git-sub-changes() {
+  local submodule=${1:-nvim}
+  local old_sha new_sha summary changelog gh_url
+
+  old_sha=$(git ls-tree HEAD~1 "$submodule" 2>/dev/null | awk '{print substr($3,2)}')
+  new_sha=$(git rev-parse ":$submodule" 2>/dev/null)
+
+  [[ -z "$old_sha" || -z "$new_sha" ]] && {
+    echo "❌ SHA 失败: $(git submodule status "$submodule")"
+    return 1
+  }
+  [[ "$old_sha" == "$new_sha" ]] && { echo "ℹ️ 无变更"; return 0; }
+
+  echo "📊 $submodule: ${old_sha:0:7} → ${new_sha:0:7}"
+
+  # 绕过 git log：用 git status + git show 最新 commit
+  summary=$(git submodule summary "$submodule" 2>/dev/null | head -3 | sed 's/^/  /')
+  changelog="  $(git show --oneline -1 "$new_sha" 2>/dev/null | head -1 | sed 's/^/  /')"
+
+  gh_url=$(git config --file .gitmodules "submodule.$submodule.url" | head -1 | \
+    sed 's|git@github.com:|https://github.com/|g;s|\.git$||')/commit/$new_sha
+
+  cat << EOF
+
+build: update $submodule to ${new_sha:0:7}
+
+$summary$changelog
+
+🔗 $gh_url
+EOF
+
+  echo -n "commit? (y/N): "
+  read -r reply
+  [[ "$reply" =~ ^[Yy] ]] && {
+    git commit -m "build: update $submodule to ${new_sha:0:7}" \
+      -m "$(git submodule summary "$submodule" 2>/dev/null | head -3)"
+  }
+}
+
+alias gsc='git-sub-changes'
+
+alias gsc='git-sub-changes'
+
+git-sub-debug() {
+  local submodule=${1:-nvim}
+  echo "=== 诊断 $submodule ==="
+  echo "1. git submodule status:"
+  git submodule status "$submodule"
+  echo ""
+  echo "2. 目录状态:"
+  ls -la "$submodule" | head -5
+  echo ""
+  echo "3. 是否 Git repo?"
+  (cd "$submodule" && git rev-parse --git-dir) 2>&1 || echo "❌ 不是 repo"
+  echo ""
+  echo "4. .gitmodules 配置:"
+  git config --file .gitmodules --get-regexp "^submodule\.$submodule"
+  echo ""
+  echo "5. 外层记录 SHA:"
+  git ls-tree HEAD "$submodule" 2>/dev/null
+}
+
+alias gsd='git-sub-debug'
+
 # File & directory
 alias ls='eza --color=always --long --icons=always --no-time --no-user --no-permissions'
 alias cd='z'
