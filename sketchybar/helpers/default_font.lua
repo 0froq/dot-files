@@ -1,9 +1,9 @@
 return {
-  text = 'Monaspace Radon NF',
+  text = 'Monaspace Argon NF',
   -- text = 'LXGW Bright Code TC',
   -- text = 'QiushuiShotai',
   -- text = 'LXGW WenKai Mono Light',
-  numbers = 'Monaspace Radon NF',
+  numbers = 'Monaspace Argon NF',
   -- numbers = 'LXGW Bright Code TC',
   -- numbers = 'QiushuiShotai',
   -- numbers = 'LXGW WenKai Mono Light',
