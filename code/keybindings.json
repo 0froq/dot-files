@@ -1,0 +1,371 @@
+[
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "cmd+s",
+    "command": "workbench.action.focusSideBar",
+    "when": "!sideBarVisible"
+  },
+  {
+    "key": "cmd+s",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "sideBarFocus || (!sideBarFocus && sideBarVisible)"
+  },
+  {
+    "key": "shift+cmd+s",
+    "command": "workbench.action.toggleAuxiliaryBar"
+  },
+  {
+    "key": "cmd+j",
+    "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "shift+cmd+e",
+    "command": "workbench.explorer.fileView.focus"
+  },
+  {
+    "key": "shift+cmd+f",
+    "command": "workbench.view.search.focus"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "workbench.scm.focus"
+  },
+  {
+    "key": "shift+cmd+d",
+    "command": "workbench.view.debug"
+  },
+  {
+    "key": "shift+cmd+x",
+    "command": "workbench.extensions.action.focusExtensionsView"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "workbench.view.testing.focus"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "bookmarksExplorer.focus"
+  },
+  {
+    "key": "shift+cmd+u",
+    "command": "workbench.panel.output.focus"
+  },
+  {
+    "key": "shift+cmd+m",
+    "command": "workbench.panel.markers.view.focus"
+  },
+  {
+    "key": "shift+cmd+y",
+    "command": "workbench.panel.repl.view.focus"
+  },
+  {
+    "key": "shift+cmd+/",
+    "command": "terminal.focus"
+  },
+  {
+    "key": "shift+cmd+;",
+    "command": "~remote.forwardedPorts.focus"
+  },
+  {
+    "key": "shift+cmd+o",
+    "command": "outline.focus"
+  },
+  {
+    "key": "shift+cmd+a",
+    "command": "workbench.panel.chat.view.copilot.focus"
+  },
+  {
+    "key": "shift+cmd+p",
+    "command": "workbench.action.showCommands"
+  },
+  {
+    "key": "shift+cmd+.",
+    "command": "breadcrumbs.focusAndSelect"
+  },
+  {
+    "key": "cmd+p",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "shift+alt+w",
+    "command": "editor.action.toggleWordWrap",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "editor.action.increaseHoverVerbosityLevel",
+    "when": "editorHoverVisible"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "editor.action.decreaseHoverVerbosityLevel",
+    "when": "editorHoverVisible"
+  },
+  {
+    "key": "j",
+    "command": "editor.action.scrollDownHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "k",
+    "command": "editor.action.scrollUpHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "shift+k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "q",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "breadcrumbsActive"
+  },
+  {
+    "key": "q",
+    "command": "closeQuickDiff",
+    "when": "dirtyDiffVisible"
+  },
+  {
+    "key": "q",
+    "command": "closeMarkersNavigation",
+    "when": "markersNavigationVisible"
+  },
+  {
+    "key": "q",
+    "command": "closeReferenceSearch",
+    "when": "referenceSearchVisible && listFocus"
+  },
+  {
+    "key": "q",
+    "command": "togglePeekWidgetFocus",
+    "when": "inReferenceSearchEditor && textInputFocus"
+  },
+  {
+    "key": "q",
+    "command": "editor.action.hideHover",
+    "when": "editorHoverFocused"
+  },
+  {
+    "key": "enter",
+    "command": "list.select",
+    "when": "listFocus && referenceSearchVisible && !inputFocus && !treeElementCanCollapse && !treeElementCanExpand && !treestickyScrollFocused"
+  },
+  {
+    "key": "l",
+    "command": "togglePeekWidgetFocus",
+    "when": "listFocus && referenceSearchVisible && !inputFocus && !treeElementCanCollapse && !treeElementCanExpand && !treestickyScrollFocused"
+  },
+  {
+    "key": "shift+k",
+    "command": "togglePeekWidgetFocus",
+    "when": "editorTextFocus && referenceSearchVisible && !inReferenceSearchEditor"
+  },
+  {
+    "key": "o",
+    "command": "list.select",
+    "when": "listFocus && !inputFocus && !treestickyScrollFocused"
+  },
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.showMultipleEditorTabs",
+    "when": "config.workbench.editor.showTabs == 'single'"
+  },
+  {
+    "key": "cmd+t",
+    "command": "workbench.action.showEditorTab",
+    "when": "config.workbench.editor.showTabs == 'multiple'"
+  },
+  {
+    "key": "alt+v",
+    "command": "markdown-image.paste",
+    "when": "editorLangId == 'markdown' || editorLangId == 'mdx' || resourceExtname == '.ipynb'"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "moveFileToTrash",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "y",
+    "command": "filesExplorer.copy",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "enter",
+    "command": "list.select",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "l",
+    "command": "list.selectAndPreserveFocus",
+    "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "cmd+\\",
+    "command": "workbench.action.splitEditorRight"
+  },
+  {
+    "key": "shift+cmd+\\",
+    "command": "workbench.action.splitEditorDown"
+  },
+  {
+    "key": "shift+ctrl+h",
+    "command": "workbench.action.moveEditorToLeftGroup",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+ctrl+j",
+    "command": "workbench.action.moveEditorToBelowGroup",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+ctrl+k",
+    "command": "workbench.action.moveEditorToAboveGroup",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+ctrl+l",
+    "command": "workbench.action.moveEditorToRightGroup",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+h",
+    "command": "workbench.action.moveEditorLeftInGroup",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+l",
+    "command": "workbench.action.moveEditorRightInGroup",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+cmd+c",
+    "command": "copyRelativeFilePath",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+b",
+    "command": "bookmarks.toggle",
+    "when": "editorFocus"
+  },
+  {
+    "key": "shift+alt+b",
+    "command": "bookmarks.toggleLabeled",
+    "when": "editorFocus"
+  },
+  {
+    "key": "l",
+    "command": "list.toggleExpand",
+    "when": "treeElementCanExpand && !inputFocus"
+  },
+  {
+    "key": "cmd+o",
+    "command": "workbench.action.files.openFolder",
+    "when": "openFolderWorkspaceSupport"
+  },
+  {
+    "key": "cmd+.",
+    "command": "editor.action.autoFix",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+y",
+    "command": "-chatEditor.action.acceptHunk",
+    "when": "chatEdits.hasEditorModifications && editorFocus && !chatEdits.isRequestInProgress || chatEdits.hasEditorModifications && notebookCellListFocused && !chatEdits.isRequestInProgress"
+  },
+  {
+    "key": "alt+enter",
+    "command": "workbench.action.toggleMaximizeEditorGroup",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+enter",
+    "command": "workbench.action.toggleMaximizedAuxiliaryBar",
+    "when": "auxiliaryBarFocus"
+  },
+  {
+    "key": "alt+enter",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "panelFocus"
+  },
+  {
+    "key": "shift+cmd+,",
+    "command": "workbench.action.openSettingsJson"
+  },
+  {
+    "key": "cmd+k shift+cmd+s",
+    "command": "workbench.action.openGlobalKeybindingsFile"
+  },
+  {
+    "key": "cmd+l",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.closePanel",
+        "workbench.action.closeSidebar",
+        "workbench.action.closeAuxiliaryBar"
+      ]
+    }
+  },
+  {
+    "key": "cmd+enter",
+    "command": "workbench.action.pinEditor",
+    "when": "!activeEditorIsPinned"
+  },
+  {
+    "key": "cmd+enter",
+    "command": "workbench.action.unpinEditor",
+    "when": "activeEditorIsPinned"
+  },
+  {
+    "key": "l",
+    "command": "filesExplorer.openFilePreserveFocus",
+    "when": "filesExplorerFocus && treeFindOpen && !inputFocus"
+  },
+  {
+    "key": "cmd+k cmd+i",
+    "command": "editor.action.inspectTMScopes",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+h",
+    "command": "breadcrumbs.focusPreviousWithPicker",
+    "when": "breadcrumbsActive"
+  },
+  {
+    "key": "shift+l",
+    "command": "breadcrumbs.focusNextWithPicker",
+    "when": "breadcrumbsActive"
+  }
+]
