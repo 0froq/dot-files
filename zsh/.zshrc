@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # File Name: .zshrc
-# Last Modified: 2026-01-23 16:36:16
-# Line Count: 298
+# Last Modified: 2026-01-26 12:59:58
+# Line Count: 299
 #
 # Main Zsh Configuration
 
@@ -88,52 +88,52 @@ setopt HIST_VERIFY             # Show expanded command before execution
 setopt HIST_IGNORE_ALL_DUPS    # Remove older duplicates during addition
 
 # =============================================================================
-# 4. ZLE & VI MODE CONFIGURATION
+# 4. ZLE & KEYBINDINGS CONFIGURATION
 # =============================================================================
-# ZLE: Zsh Line Editor - Vi mode + cursor shapes + custom mappings
+# ZLE: Zsh Line Editor
 
-bindkey -v  # Enable vi mode
+bindkey -e
 
 # Cursor shape changes
-function zle-keymap-select() {
-  if [[ ${KEYMAP} == vicmd ]]; then
-    echo -ne '\e[1 q'  # Normal mode: block cursor
-  else
-    echo -ne '\e[5 q'  # Insert mode: beam cursor
-  fi
-}
-zle -N zle-keymap-select
+# function zle-keymap-select() {
+#   if [[ ${KEYMAP} == vicmd ]]; then
+#     echo -ne '\e[1 q'  # Normal mode: block cursor
+#   else
+#     echo -ne '\e[5 q'  # Insert mode: beam cursor
+#   fi
+# }
+# zle -N zle-keymap-select
 
-function zle-line-init() {
-  zle -K viins
-  echo -ne '\e[5 q'
-}
-zle -N zle-line-init
+# function zle-line-init() {
+#   zle -K viins
+#   echo -ne '\e[5 q'
+# }
+# zle -N zle-line-init
 
 # Command line editing with nvim
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd 'v' edit-command-line  # Normal mode: v → nvim
+bindkey '^i' edit-command-line  # Normal mode: v → nvim
 
 # Enhanced vi mappings (add your custom mappings here)
-bindkey -M vicmd 'H' beginning-of-line
-bindkey -M vicmd 'L' end-of-line
-bindkey -M vicmd 'j' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
+# bindkey -M vicmd 'H' beginning-of-line
+# bindkey -M vicmd 'L' end-of-line
+# bindkey -M vicmd 'j' history-substring-search-down
+# bindkey -M vicmd 'k' history-substring-search-up
 
 # Arrow key history substring search (Zim module)
-for key in "${terminfo[kcuu1]}" "${terminfo[kcud1]}"; do
-  bindkey "${key}" history-substring-search-up
-  bindkey "${key}" history-substring-search-down
-done
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
+# for key in "${terminfo[kcuu1]}" "${terminfo[kcud1]}"; do
+#   bindkey "${key}" history-substring-search-up
+#   bindkey "${key}" history-substring-search-down
+# done
+# bindkey -M vicmd 'k' history-substring-search-up
+# bindkey -M vicmd 'j' history-substring-search-down
 
 # `aa` to escape from insert mode
-bindkey -M viins 'aa' vi-cmd-mode
+# bindkey -M viins 'aa' vi-cmd-mode
 
 # Initial cursor shape
-echo -ne '\e[5 q'
+# echo -ne '\e[5 q'
 
 # =============================================================================
 # 5. COMPLETION & PROMPT
@@ -268,7 +268,7 @@ alias .nvim='cd ~/.config/nvim'
 
 # ~/.zshrc
 alias vz='nvim ~/.zshrc'
-alias .z='source ~/.zshrc'
+alias .z='exec zsh'
 
 # ~/.config/nvim
 alias vv='cd ~/.config/nvim && nvim'
@@ -277,6 +277,7 @@ alias vv='cd ~/.config/nvim && nvim'
 alias gs='git status'
 alias ga='git add'
 alias gaa='git add .'
+alias gc='git commit -v'
 
 # Development tools
 alias python='/opt/homebrew/bin/python3'
