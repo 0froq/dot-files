@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # File Name: .zshrc
-# Last Modified: 2026-01-26 12:59:58
-# Line Count: 299
+# Last Modified: 2026-01-26 23:47:28
+# Line Count: 238
 #
 # Main Zsh Configuration
 
@@ -28,8 +28,8 @@ PATH="/usr/local/lib:$PATH"
 
 # Dynamic PATH (pnpm)
 case "$PATH" in
-  *"$PNPM_HOME"* ) ;;
-  * ) export PATH="$PNPM_HOME:$PATH" ;;
+*"$PNPM_HOME"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
 # =============================================================================
@@ -41,7 +41,8 @@ ZIM_HOME="${ZDOTDIR:-$HOME}/.zim"
 # Download zimfw.zsh bootstrap (if missing)
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   # if command -v curl >/dev/null; then
-  if (( ${+commands[curl]} )); then
+  # if (( ${+commands[curl]} )); then
+  if command -v curl >/dev/null 2>&1; then
     curl -fsSL --create-dirs -o "${ZIM_HOME}/zimfw.zsh" \
       "https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh"
   else
@@ -58,22 +59,6 @@ fi
 # Initialize modules from ~/.zimrc
 source "${ZIM_HOME}/init.zsh"
 
-# ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-# if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
-#   if (( ${+commands[curl]} )); then
-#     curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
-#         https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-#   else
-#     mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
-#         https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-#   fi
-# fi
-# if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
-#   source ${ZIM_HOME}/zimfw.zsh init -q
-# fi
-# source ${ZIM_HOME}/init.zsh
-
-
 # =============================================================================
 # 3. HISTORY CONFIGURATION
 # =============================================================================
@@ -81,11 +66,11 @@ source "${ZIM_HOME}/init.zsh"
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=999
 SAVEHIST=1000
-setopt SHARE_HISTORY           # Session history shared across terminals
-setopt HIST_EXPIRE_DUPS_FIRST  # Expire duplicates first
-setopt HIST_IGNORE_DUPS        # Ignore consecutive duplicates
-setopt HIST_VERIFY             # Show expanded command before execution
-setopt HIST_IGNORE_ALL_DUPS    # Remove older duplicates during addition
+setopt SHARE_HISTORY          # Session history shared across terminals
+setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicates first
+setopt HIST_IGNORE_DUPS       # Ignore consecutive duplicates
+setopt HIST_VERIFY            # Show expanded command before execution
+setopt HIST_IGNORE_ALL_DUPS   # Remove older duplicates during addition
 
 # =============================================================================
 # 4. ZLE & KEYBINDINGS CONFIGURATION
@@ -94,46 +79,10 @@ setopt HIST_IGNORE_ALL_DUPS    # Remove older duplicates during addition
 
 bindkey -e
 
-# Cursor shape changes
-# function zle-keymap-select() {
-#   if [[ ${KEYMAP} == vicmd ]]; then
-#     echo -ne '\e[1 q'  # Normal mode: block cursor
-#   else
-#     echo -ne '\e[5 q'  # Insert mode: beam cursor
-#   fi
-# }
-# zle -N zle-keymap-select
-
-# function zle-line-init() {
-#   zle -K viins
-#   echo -ne '\e[5 q'
-# }
-# zle -N zle-line-init
-
 # Command line editing with nvim
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey '^i' edit-command-line  # Normal mode: v → nvim
-
-# Enhanced vi mappings (add your custom mappings here)
-# bindkey -M vicmd 'H' beginning-of-line
-# bindkey -M vicmd 'L' end-of-line
-# bindkey -M vicmd 'j' history-substring-search-down
-# bindkey -M vicmd 'k' history-substring-search-up
-
-# Arrow key history substring search (Zim module)
-# for key in "${terminfo[kcuu1]}" "${terminfo[kcud1]}"; do
-#   bindkey "${key}" history-substring-search-up
-#   bindkey "${key}" history-substring-search-down
-# done
-# bindkey -M vicmd 'k' history-substring-search-up
-# bindkey -M vicmd 'j' history-substring-search-down
-
-# `aa` to escape from insert mode
-# bindkey -M viins 'aa' vi-cmd-mode
-
-# Initial cursor shape
-# echo -ne '\e[5 q'
+bindkey '^X^E' edit-command-line
 
 # =============================================================================
 # 5. COMPLETION & PROMPT
@@ -182,7 +131,7 @@ eval "$(thefuck --alias)"
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   command yazi "$@" --cwd-file="$tmp"
-  IFS= read -r -d '' cwd < "$tmp"
+  IFS= read -r -d '' cwd <"$tmp"
   [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
   rm -f -- "$tmp"
 }
@@ -198,21 +147,23 @@ git-sub-changes() {
   new_sha=$(git rev-parse ":$submodule" 2>/dev/null)
 
   [[ -z "$old_sha" || -z "$new_sha" ]] && {
-    echo "❌ SHA 失败: $(git submodule status "$submodule")"
+    echo "❌ SHA failed: $(git submodule status "$submodule")"
     return 1
   }
-  [[ "$old_sha" == "$new_sha" ]] && { echo "ℹ️ 无变更"; return 0; }
+  [[ "$old_sha" == "$new_sha" ]] && {
+    echo "ℹ️ No changes"
+    return 0
+  }
 
   echo "📊 $submodule: ${old_sha:0:7} → ${new_sha:0:7}"
 
-  # 绕过 git log：用 git status + git show 最新 commit
   summary=$(git submodule summary "$submodule" 2>/dev/null | head -3 | sed 's/^/  /')
   changelog="  $(git show --oneline -1 "$new_sha" 2>/dev/null | head -1 | sed 's/^/  /')"
 
-  gh_url=$(git config --file .gitmodules "submodule.$submodule.url" | head -1 | \
+  gh_url=$(git config --file .gitmodules "submodule.$submodule.url" | head -1 |
     sed 's|git@github.com:|https://github.com/|g;s|\.git$||')/commit/$new_sha
 
-  cat << EOF
+  cat <<EOF
 
 build: update $submodule to ${new_sha:0:7}
 
@@ -231,47 +182,37 @@ EOF
 
 alias gsc='git-sub-changes'
 
-alias gsc='git-sub-changes'
-
-git-sub-debug() {
-  local submodule=${1:-nvim}
-  echo "=== 诊断 $submodule ==="
-  echo "1. git submodule status:"
-  git submodule status "$submodule"
-  echo ""
-  echo "2. 目录状态:"
-  ls -la "$submodule" | head -5
-  echo ""
-  echo "3. 是否 Git repo?"
-  (cd "$submodule" && git rev-parse --git-dir) 2>&1 || echo "❌ 不是 repo"
-  echo ""
-  echo "4. .gitmodules 配置:"
-  git config --file .gitmodules --get-regexp "^submodule\.$submodule"
-  echo ""
-  echo "5. 外层记录 SHA:"
-  git ls-tree HEAD "$submodule" 2>/dev/null
-}
-
-alias gsd='git-sub-debug'
-
 # File & directory
 alias ls='eza --color=always --long --icons=always --no-time --no-user --no-permissions'
 alias cd='z'
 
-# Project shortcuts
-alias 1='cd ~/1_projects'
-alias 2='cd ~/2_areas'
-alias 3='cd ~/3_resources'
-alias 4='cd ~/4_nas'
-alias .conf='cd ~/.config'
-alias .nvim='cd ~/.config/nvim'
+# Semantic anchors
+typeset -gA J
+J[.]="$HOME/.config"
+J[v]="$HOME/.config/nvim"
+J[1]="$HOME/1_projects"
+J[2]="$HOME/2_areas"
+J[3]="$HOME/3_resources"
+J[c]="$HOME/2_areas/knowledge_management/blog/docs/corpus"
 
-# ~/.zshrc
-alias vz='nvim ~/.zshrc'
+# o(open, cd)
+o() { builtin cd -- "${J[$1]:-$HOME}/${2:-}"; }
+
+# v(nvim)
+v() {
+  local key=$1
+  shift
+  o "$key"
+  nvim "$@"
+}
+
+ov() { o v "$@"; }
+vv() { v v "$@"; }
+o.() { o . "$@"; }
+v.() { v . "$@"; }
+
+# source ~/.zshrc
 alias .z='exec zsh'
-
-# ~/.config/nvim
-alias vv='cd ~/.config/nvim && nvim'
 
 # Git shortcuts
 alias gs='git status'
@@ -283,8 +224,6 @@ alias gc='git commit -v'
 alias python='/opt/homebrew/bin/python3'
 alias nvim12="$HOME/bin/nvim-0.12/bin/nvim"
 alias vi='nvim'
-alias v='nvim'
-# alias shfmt="$HOME/go/bin/shfmt"
 
 # Knowledge management
 alias corpus="$CORPUS_DIR/corpus.zsh"
