@@ -1,3 +1,3 @@
-require("items.apple")
-require("items.widgets")
-require("items.vimode")
+require('items.apple')
+require('items.widgets')
+-- require("items.vimode")
