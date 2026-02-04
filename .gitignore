@@ -13,4 +13,5 @@ node_modules
 pnpm-lock.yaml
 tmux/plugins/
 .session.vim
+uv/
 **/__pycache__/
