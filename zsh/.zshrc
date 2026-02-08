@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # File Name: .zshrc
-# Last Modified: 2026-01-26 23:47:28
-# Line Count: 238
+# Last Modified: 2026-02-04 21:07:39
+# Line Count: 239
 #
 # Main Zsh Configuration
 
@@ -17,6 +17,7 @@ export PNPM_HOME="$HOME/Library/pnpm"
 export CORPUS_DIR="$HOME/2_areas/knowledge_management/blog/docs/corpus"
 export ZOTERO_BIB_FILE="$HOME/3_resources/research/refs/zotero.bib"
 export AIHUB_MIX_API_KEY="sk-19voXIXyGAZWDfRS0b0aAeA9692d4040A6B3Ec10F143B10b"
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
 
 # PATH modifications (order matters!)
 PATH="$HOME/.rvm/bin:$PATH"
