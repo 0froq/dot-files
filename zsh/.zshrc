@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 # File Name: .zshrc
-# Last Modified: 2026-02-04 21:07:39
+# Last Modified: 2026-02-27 09:50:58
 # Line Count: 239
 #
 # Main Zsh Configuration
@@ -223,7 +223,7 @@ alias gc='git commit -v'
 
 # Development tools
 alias python='/opt/homebrew/bin/python3'
-alias nvim12="$HOME/bin/nvim-0.12/bin/nvim"
+alias nvim12="$HOME/bin/nvim0.12/bin/nvim"
 alias vi='nvim'
 
 # Knowledge management
