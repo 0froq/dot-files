@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 # File Name: .zshrc
-# Last Modified: 2026-02-27 09:50:58
+# Last Modified: 2026-03-03 11:10:33
 # Line Count: 239
 #
 # Main Zsh Configuration
@@ -216,7 +216,7 @@ v.() { v . "$@"; }
 alias .z='exec zsh'
 
 # Git shortcuts
-alias gs='git status'
+alias gs='git status -sb'
 alias ga='git add'
 alias gaa='git add .'
 alias gc='git commit -v'
