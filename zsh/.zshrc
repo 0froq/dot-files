@@ -237,3 +237,10 @@ alias corpus="$CORPUS_DIR/corpus.zsh"
 # source ~/.zshrc.local  # if exists
 
 # End of ~/.zshrc
+
+# bun completions
+[ -s "/Users/oQ/.bun/_bun" ] && source "/Users/oQ/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
