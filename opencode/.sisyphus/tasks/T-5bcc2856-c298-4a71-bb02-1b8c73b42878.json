@@ -1,0 +1,11 @@
+{
+  "id": "T-5bcc2856-c298-4a71-bb02-1b8c73b42878",
+  "subject": "Answer OmO agent selection and prompt configuration questions",
+  "description": "Gather repo/docs context and explain model/agent choices + background prompt configuration for OhMyOpenCode.",
+  "status": "completed",
+  "activeForm": "[ ] Gather local repo/doc context\n[ ] Gather external docs context\n[ ] Synthesize guidance and recommendations",
+  "blocks": [],
+  "blockedBy": [],
+  "repoURL": "https://github.com/code-yeongyu/oh-my-opencode",
+  "threadID": "ses_34c5c9960ffeyX0HSqoAnbaPeb"
+}
