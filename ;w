@@ -5,6 +5,7 @@
     "sisyphus": {
       "model": "kimi-for-coding/k2p5",
       "fallback_models": [
+        // "openrouter/z-ai/glm-5",
         "opencode/big-pickle"
       ],
       "ultrawork": {
@@ -152,11 +153,7 @@
 
     "unspecified-high": {
       "model": "kimi-for-coding/k2p5",
-      "fallback_models": [
-        "github-copilot/gpt-5.4",
-        "github-copilot/gpt-5.2",
-        "kimi-for-coding/k2p5"
-      ]
+      "variant": "max"
     },
 
     "writing": {
@@ -174,14 +171,22 @@
     "providerConcurrency": {
       "google": 10,
       "opencode": 20,
-      "github-copilot": 15
+      "github-copilot": 15,
+      "openrouter": 5
     },
     "modelConcurrency": {
       "github-copilot/claude-opus-4.6": 2,
+      "openrouter/z-ai/glm-4.5v": 10,
       "opencode/gpt-5-nano": 20
     }
   },
 
+  // "sisyphus_agent": {
+  //   "disabled": false,
+  //   "default_builder_enabled": false,
+  //   "planner_enabled": true,
+  //   "replace_plan": true
+  // },
   "sisyphus": {
     "tasks": {
       "enabled": true,
