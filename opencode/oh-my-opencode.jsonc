@@ -91,11 +91,10 @@
     },
 
     "atlas": {
-      "model": "kimi-for-coding/k2p5",
+      "model": "github-copilot/gpt-5.4",
       "fallback_models": [
-        "github-copilot/claude-sonnet-4.6",
-        "github-copilot/gpt-5.4",
-        "github-copilot/gpt-5.2"
+        "github-copilot/gpt-5.2",
+        "github-copilot/claude-sonnet-4.6"
       ]
     }
 

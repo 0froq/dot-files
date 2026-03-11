@@ -12,10 +12,10 @@
   "license": "ISC",
   "packageManager": "pnpm@10.13.1",
   "devDependencies": {
-    "@commitlint/cli": "^20.1.0",
-    "@commitlint/config-conventional": "^20.0.0",
-    "@commitlint/types": "^20.0.0",
-    "conventional-changelog-conventionalcommits": "^9.1.0",
+    "@commitlint/cli": "^20.4.3",
+    "@commitlint/config-conventional": "^20.4.3",
+    "@commitlint/types": "^20.4.3",
+    "conventional-changelog-conventionalcommits": "^9.3.0",
     "husky": "^9.1.7"
   }
 }
