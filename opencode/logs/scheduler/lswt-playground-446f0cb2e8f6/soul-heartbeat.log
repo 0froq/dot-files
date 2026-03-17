@@ -1,0 +1,60 @@
+
+=== Scheduled run 2026-03-13T00:00:05+0800 runId=1773331205.58584-581145382 ===
+[91m[1mError: [0mConfiguration is invalid at /Users/oQ/1_projects/probe/lswt-playground/.opencode/agents/soul.md
+↳ Invalid option: expected one of "subagent"|"primary"|"all" mode
+
+=== Finished 2026-03-13T00:00:06+0800 status=failed exitCode=1 durationMs=436 ===
+
+=== Scheduled run 2026-03-13T12:00:05+0800 runId=1773374405.42422-742932961 ===
+[91m[1mError: [0mConfiguration is invalid at /Users/oQ/1_projects/probe/lswt-playground/.opencode/agents/soul.md
+↳ Invalid option: expected one of "subagent"|"primary"|"all" mode
+
+=== Finished 2026-03-13T12:00:05+0800 status=failed exitCode=1 durationMs=411 ===
+
+=== Scheduled run 2026-03-14T00:00:04+0800 runId=1773417604.66018-065336317 ===
+[91m[1mError: [0mConfiguration is invalid at /Users/oQ/1_projects/probe/lswt-playground/.opencode/agents/soul.md
+↳ Invalid option: expected one of "subagent"|"primary"|"all" mode
+
+=== Finished 2026-03-14T00:00:05+0800 status=failed exitCode=1 durationMs=587 ===
+
+=== Scheduled run 2026-03-14T12:00:03+0800 runId=1773460803.11781-882951756 ===
+[91m[1mError: [0mConfiguration is invalid at /Users/oQ/1_projects/probe/lswt-playground/.opencode/agents/soul.md
+↳ Invalid option: expected one of "subagent"|"primary"|"all" mode
+
+=== Finished 2026-03-14T12:00:03+0800 status=failed exitCode=1 durationMs=594 ===
+
+=== Scheduled run 2026-03-15T00:00:03+0800 runId=1773504003.09478-970528018 ===
+[91m[1mError: [0mConfiguration is invalid at /Users/oQ/1_projects/probe/lswt-playground/.opencode/agents/soul.md
+↳ Invalid option: expected one of "subagent"|"primary"|"all" mode
+
+=== Finished 2026-03-15T00:00:03+0800 status=failed exitCode=1 durationMs=590 ===
+
+=== Scheduled run 2026-03-15T12:00:05+0800 runId=1773547205.40745-939143520 ===
+[91m[1mError: [0mConfiguration is invalid at /Users/oQ/1_projects/probe/lswt-playground/.opencode/agents/soul.md
+↳ Invalid option: expected one of "subagent"|"primary"|"all" mode
+
+=== Finished 2026-03-15T12:00:06+0800 status=failed exitCode=1 durationMs=594 ===
+
+=== Scheduled run 2026-03-16T00:00:05+0800 runId=1773590405.3707-399396156 ===
+[91m[1mError: [0mConfiguration is invalid at /Users/oQ/1_projects/probe/lswt-playground/.opencode/agents/soul.md
+↳ Invalid option: expected one of "subagent"|"primary"|"all" mode
+
+=== Finished 2026-03-16T00:00:05+0800 status=failed exitCode=1 durationMs=573 ===
+
+=== Scheduled run 2026-03-16T12:00:05+0800 runId=1773633605.81408-551804613 ===
+[91m[1mError: [0mConfiguration is invalid at /Users/oQ/1_projects/probe/lswt-playground/.opencode/agents/soul.md
+↳ Invalid option: expected one of "subagent"|"primary"|"all" mode
+
+=== Finished 2026-03-16T12:00:06+0800 status=failed exitCode=1 durationMs=602 ===
+
+=== Scheduled run 2026-03-17T00:00:05+0800 runId=1773676805.37206-699377020 ===
+[91m[1mError: [0mConfiguration is invalid at /Users/oQ/1_projects/probe/lswt-playground/.opencode/agents/soul.md
+↳ Invalid option: expected one of "subagent"|"primary"|"all" mode
+
+=== Finished 2026-03-17T00:00:05+0800 status=failed exitCode=1 durationMs=609 ===
+
+=== Scheduled run 2026-03-17T12:00:05+0800 runId=1773720005.59896-859317068 ===
+[91m[1mError: [0mConfiguration is invalid at /Users/oQ/1_projects/probe/lswt-playground/.opencode/agents/soul.md
+↳ Invalid option: expected one of "subagent"|"primary"|"all" mode
+
+=== Finished 2026-03-17T12:00:06+0800 status=failed exitCode=1 durationMs=624 ===
