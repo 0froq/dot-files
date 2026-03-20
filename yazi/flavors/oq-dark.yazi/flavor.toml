@@ -8,14 +8,14 @@ overall = {}
 # : Manager {{{
 
 [mgr]
-cwd = { fg = "white" }
+cwd = { fg = "white", bold = true }
 
 # Find
-find_keyword  = { fg = "yellow", bold = true, italic = true, underline = true }
-find_position = { fg = "magenta", bg = "reset", bold = true, italic = true }
+find_keyword  = { bg = "lightyellow", bold = true }
+find_position = { fg = "white", bold = true }
 
 # Symlink
-symlink_target = { italic = true }
+symlink_target = { fg = "lightblack", italic = true }
 
 # Marker
 marker_copied   = { fg = "lightgreen",  bg = "lightgreen" }
@@ -30,7 +30,7 @@ count_selected = { fg = "black", bg = "yellow" }
 
 # Border
 border_symbol = "│"
-border_style  = { fg = "gray" }
+border_style  = { fg = "lightblack" }
 
 # Highlighting
 syntect_theme = ""
@@ -45,8 +45,8 @@ active   = { bg = "blue", bold = true }
 inactive = { fg = "blue", bg = "gray" }
 
 # Separator
-sep_inner = { open = "", close = "" }
-sep_outer = { open = "", close = "" }
+sep_inner = { open = " ", close = " " }
+sep_outer = { open = " ", close = " " }
 
 # : }}}
 
@@ -54,16 +54,16 @@ sep_outer = { open = "", close = "" }
 # : Mode {{{
 
 [mode]
-normal_main = { bg = "blue", bold = true }
-normal_alt  = { fg = "blue", bg = "gray" }
+normal_main = { fg = "black", bg = "green", bold = true }
+normal_alt  = { fg = "green", bg = "lightblack" }
 
 # Select mode
-select_main = { bg = "red", bold = true }
-select_alt  = { fg = "red", bg = "gray" }
+select_main = { fg = "black", bg = "magenta", bold = true }
+select_alt  = { fg = "magenta", bg = "lightblack" }
 
 # Unset mode
-unset_main = { bg = "red", bold = true }
-unset_alt  = { fg = "red", bg = "gray" }
+unset_main = { fg = "black", bg = "magenta", bold = true }
+unset_alt  = { fg = "magenta", bg = "lightgray" }
 
 # : }}}
 
@@ -71,9 +71,9 @@ unset_alt  = { fg = "red", bg = "gray" }
 # : Indicator of hovered file {{{
 
 [indicator]
-parent  = { reversed = true }
-current = { reversed = true }
-preview = { underline = true }
+parent = { fg = "lightgray", bg = "lightblack", bold = true }
+current = { fg = "lightgray", bg = "lightblack", bold = true }
+preview = { fg = "lightgray", bg = "lightblack", bold = true }
 padding = { open = "█", close = "█" }
 
 # : }}}
@@ -82,9 +82,9 @@ padding = { open = "█", close = "█" }
 # : Status bar {{{
 
 [status]
-overall   = {}
-sep_left  = { open = "", close = "" }
-sep_right = { open = "", close = "" }
+overall   = { bg = "lightblack" }
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
 # Permissions
 perm_sep   = { fg = "darkgray" }
@@ -118,8 +118,8 @@ separator_style = { fg = "darkgray" }
 # : Confirmation {{{
 
 [confirm]
-border     = { fg = "blue" }
-title      = { fg = "blue" }
+border     = { fg = "gray" }
+title      = { fg = "white" }
 body       = {}
 list       = {}
 btn_yes    = { reversed = true }
@@ -132,8 +132,8 @@ btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 # : Spotter {{{
 
 [spot]
-border = { fg = "blue" }
-title  = { fg = "blue" }
+border = { fg = "gray" }
+title  = { fg = "white" }
 
 # Table
 tbl_col  = { fg = "blue" }
@@ -150,9 +150,9 @@ title_warn  = { fg = "yellow" }
 title_error = { fg = "red" }
 
 # Icons
-icon_info  = ""
-icon_warn  = ""
-icon_error = ""
+icon_info  = "I"
+icon_warn  = "W"
+icon_error = "E"
 
 # : }}}
 
@@ -160,7 +160,7 @@ icon_error = ""
 # : Picker {{{
 
 [pick]
-border   = { fg = "blue" }
+border   = { fg = "gray" }
 active   = { fg = "magenta", bold = true }
 inactive = {}
 
@@ -170,7 +170,7 @@ inactive = {}
 # : Input {{{
 
 [input]
-border   = { fg = "blue" }
+border   = { fg = "gray" }
 title    = {}
 value    = {}
 selected = { reversed = true }
@@ -181,14 +181,14 @@ selected = { reversed = true }
 # : Completion {{{
 
 [cmp]
-border   = { fg = "blue" }
+border   = { fg = "gray" }
 active   = { reversed = true }
 inactive = {}
 
 # Icons
-icon_file    = ""
-icon_folder  = ""
-icon_command = ""
+icon_file    = "F"
+icon_folder  = "D"
+icon_command = "."
 
 # : }}}
 
@@ -196,7 +196,7 @@ icon_command = ""
 # : Task manager {{{
 
 [tasks]
-border  = { fg = "blue" }
+border  = { fg = "gray" }
 title   = {}
 hovered = { fg = "magenta", bold = true }
 
