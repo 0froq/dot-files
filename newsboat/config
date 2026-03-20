@@ -1,0 +1,34 @@
+# vim: set ft=conf
+
+browser "npx broz %u"
+
+#                        foreground  background
+color listnormal         color7     color0
+color listnormal_unread  color11  color0
+color listfocus_unread   color3  color8
+color listfocus          color15 color8
+color background         default default
+color article            default color0
+color end-of-text-marker color0  default
+color info               color2  color8 protect
+color hint-separator     default color8
+color hint-description   default color8
+color title              color0 color15
+
+highlight article "^(Feed|Title|Author|Link|Date): .+" color7 default bold
+highlight article "^(Feed|Title|Author|Link|Date):" color2 default bold
+
+highlight article "\\((link|image|video)\\)" color8 default
+highlight article "https?://[^ ]+" color4 default
+highlight article "\[[0-9]+\]" color4 default bold
+
+# key
+bind h everywhere quit
+bind j everywhere down
+bind k everywhere up
+bind l everywhere open
+bind gg everywhere home
+bind G everywhere end
+bind <S-r> everywhere reload-all
+bind x articlelist toggle-article-read
+
