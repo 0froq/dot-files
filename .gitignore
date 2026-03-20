@@ -16,3 +16,4 @@ tmux/plugins/
 uv/
 **/__pycache__/
 karabiner
+opencode/
