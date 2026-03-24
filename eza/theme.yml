@@ -1,0 +1,29 @@
+# filekinds:
+#   normal: {foreground: Default}
+#   directory: {foreground: Default, is_bold: true}
+#   symlink: {foreground: Cyan}
+#   pipe: {foreground: Yellow}
+#   block_device: {foreground: Yellow, is_bold: true}
+#   char_device: {foreground: Yellow, is_bold: true}
+#   socket: {foreground: Red, is_bold: true}
+#   special: {foreground: Yellow}
+#   executable: {foreground: Green, is_bold: true}
+#   mount_point: {foreground: Blue, is_bold: true, is_underline: true}
+
+# perms
+# size
+# users
+# links
+# git
+# git_repo
+# security_context
+# file_type
+# punctuation
+# date
+# inode
+# blocks
+# header
+# octal
+# flags
+# filenames
+# extensions
