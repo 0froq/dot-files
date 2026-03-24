@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # File Name: .zshrc
-# Last Modified: 2026-03-09 16:04:27
-# Line Count: 246
+# Last Modified: 2026-03-22 12:13:04
+# Line Count: 269
 #
 # Main Zsh Configuration
 
@@ -18,8 +18,11 @@ export CORPUS_DIR="$HOME/2_areas/knowledge_management/blog/docs/corpus"
 export ZOTERO_BIB_FILE="$HOME/3_resources/research/refs/zotero.bib"
 export AIHUB_MIX_API_KEY="sk-19voXIXyGAZWDfRS0b0aAeA9692d4040A6B3Ec10F143B10b"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+export PAPIS_CONFIG_DIR="$HOME/.config/papis"
 
 # PATH modifications (order matters!)
+PATH="$HOME/.cargo/bin:$PATH"
 PATH="$HOME/.rvm/bin:$PATH"
 PATH="$HOME/.juliaup/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
@@ -76,8 +79,26 @@ setopt HIST_IGNORE_ALL_DUPS   # Remove older duplicates during addition
 # =============================================================================
 # 4. ZLE & KEYBINDINGS CONFIGURATION
 # =============================================================================
-# ZLE: Zsh Line Editor
+# Keymap indicators for Vi mode
+function zle-keymap-select {
+  case $KEYMAP in
+    vicmd)
+      echo -ne '\e[1 q'
+      ;;
+    viins|main)
+      echo -ne '\e[5 q'
+      ;;
+  esac
+}
 
+function zle-line-init {
+  echo -ne '\e[5 q'
+}
+
+zle -N zle-keymap-select
+zle -N zle-line-init
+
+# ZLE: Zsh Line Editor
 bindkey -e
 
 # Command line editing with nvim
