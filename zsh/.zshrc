@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # File Name: .zshrc
-# Last Modified: 2026-03-22 12:13:04
-# Line Count: 269
+# Last Modified: 2026-03-24 15:41:48
+# Line Count: 274
 #
 # Main Zsh Configuration
 
@@ -13,13 +13,19 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export NVMDIR="$HOME/.nvm"
 export PNPM_HOME="$HOME/Library/pnpm"
-# export CORPUS_DIR="$HOME/2/areas/knowledge_management/corpus"
 export CORPUS_DIR="$HOME/2_areas/knowledge_management/blog/docs/corpus"
 export ZOTERO_BIB_FILE="$HOME/3_resources/research/refs/zotero.bib"
 export AIHUB_MIX_API_KEY="sk-19voXIXyGAZWDfRS0b0aAeA9692d4040A6B3Ec10F143B10b"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-export PAPIS_CONFIG_DIR="$HOME/.config/papis"
+export EZA_CONFIG_DIR="$HOME/.config/eza"
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+# LS_COLORS for eza (if needed, but eza has its own config)
+export LS_COLORS=""
+export LS_COLORS="di=1;97:fi=37:ln=37:*=37\
+"
 
 # PATH modifications (order matters!)
 PATH="$HOME/.cargo/bin:$PATH"
@@ -112,6 +118,9 @@ bindkey '^X^E' edit-command-line
 # Completion (handled by Zim, but can override here)
 zstyle ':completion:*' menu select
 
+# bun completions
+[ -s "/Users/oQ/.bun/_bun" ] && source "/Users/oQ/.bun/_bun"
+
 # Prompt: Starship
 eval "$(starship init zsh)"
 
@@ -129,12 +138,7 @@ add-zsh-hook chpwd chpwd_update_title
 
 # List directory contents after changing directory
 chpwd_ls() {
-  print -P "%F{magenta}$(basename $PWD)%f"
-
-  printf '─%.0s' {1..$COLUMNS}
-  print
-
-  eza --color=always --icons=always --no-time --no-user --no-permissions
+  eza --color=always --no-time --no-user -T
 }
 
 add-zsh-hook chpwd chpwd_ls
@@ -148,6 +152,9 @@ eval "$(zoxide init zsh)"
 
 # Command correction
 eval "$(thefuck --alias)"
+
+# Boot up x-cmd
+[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X"
 
 # Yazi
 function y() {
@@ -205,8 +212,13 @@ EOF
 alias gsc='git-sub-changes'
 
 # File & directory
-alias ls='eza --color=always --long --icons=always --no-time --no-user --no-permissions'
-alias cd='z'
+alias ls='eza \
+-l \
+--hyperlink \
+--color=always \
+--no-time \
+--no-user \
+'
 
 # Semantic anchors
 typeset -gA J
@@ -259,11 +271,4 @@ alias corpus="$CORPUS_DIR/corpus.zsh"
 
 # End of ~/.zshrc
 
-# bun completions
-[ -s "/Users/oQ/.bun/_bun" ] && source "/Users/oQ/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
