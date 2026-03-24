@@ -1,0 +1,19 @@
+bibtex_files = ["~/3_resources/research/refs/zotero.bib"]
+
+[notes]
+dir = "~/2_areas/knowledge_management/blog/docs/corpus/100_ingesta/"
+filename_pattern = "ing_@{citekey}.md"
+template_file = "~/.config/bibr/template.md"
+
+[preview]
+patterns = [
+    { name = "Basic", template = "Title: {title}\nAuthor: {author}" },
+    { name = "Abstract", template = "{title}\n\nAbstract:\n{abstract}" }
+]
+
+[keybindings]
+search = "u"          # Open search interface
+preview = "b"           # Cycle all
+"preview[0]" = "1"      # Toggle specific preview
+"preview[1]" = "2"    # Cycle range
+
