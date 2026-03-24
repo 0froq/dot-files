@@ -8,7 +8,11 @@
         "opencode/big-pickle"
       ],
       "ultrawork": {
-        "model": "kimi-for-coding/k2p5"
+        // "model": "kimi-for-coding/k2p5"
+        "model": "github-copilot/gpt-5.4",
+        "fallback_models": [
+          "kimi-for-coding/k2p5"
+        ]
       }
     },
 
@@ -144,8 +148,7 @@
       "model": "kimi-for-coding/k2p5",
       "fallback_models": [
         "github-copilot/gpt-5.4",
-        "github-copilot/gpt-5.2",
-        "kimi-for-coding/k2p5"
+        "github-copilot/gpt-5.2"
       ]
     },
 
@@ -153,13 +156,16 @@
       "model": "kimi-for-coding/k2p5",
       "fallback_models": [
         "github-copilot/gpt-5.4",
-        "github-copilot/gpt-5.2",
-        "kimi-for-coding/k2p5"
+        "github-copilot/gpt-5.2"
       ]
     },
 
     "writing": {
-      "model": "kimi-for-coding/k2p5"
+      "model": "kimi-for-coding/k2p5",
+      "fallback_models": [
+        "github-copilot/gpt-5.4",
+        "github-copilot/gpt-5.2"
+      ]
     },
 
     "git": {
