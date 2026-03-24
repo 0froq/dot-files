@@ -1,0 +1,15 @@
+[settings]
+default-library = papers-geo
+
+[papers-geo]
+dir = /Users/oQ/Library/CloudStorage/SynologyDrive-resNas/3_resources/papers
+opentool = sioyek
+editor = nvim
+use-git = true
+notes-name = notes.md
+database-backend = papis
+bibtex-unicode = False
+ref-format = {doc[author_list][0][family]}{doc[year]}
+multiple-authors-format = {au[family]}, {au[given]}
+citations-file-name = citations.yaml
+
