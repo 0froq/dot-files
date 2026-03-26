@@ -216,11 +216,13 @@
   //   }
   // },
 
+  // "disabled_skills": ["git-master"],
+
   "experimental": {
     "aggressive_truncation": true,
     "task_system": true
   },
   "tmux": {
-    "enabled": false
+    "enabled": true
   }
 }
