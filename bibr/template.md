@@ -2,7 +2,7 @@
 title: {title}
 created: {date:%Y-%m-%d}
 status: probe
-last_modified: 2026-03-22 01:19:34
+last_modified: 2026-03-26 14:04:53
 lang: en
 ---
 
@@ -15,6 +15,6 @@ lang: en
 - citation_key: {citekey}
 - title: {title}
 - author: {authors:%F %L:join(, )}
-- journal: {journal:lower/N/A}
+- journal: {journal/N/A}
 - year: {year}
 - doi: {doi}
