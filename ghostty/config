@@ -33,5 +33,9 @@ confirm-close-surface = false
 # Key
 macos-option-as-alt = true
 keybind = global:cmd+;=toggle_quick_terminal
-# keybind = alt+t>Backslash=new_split:right
-# keybind = alt+t>shift+Backslash=new_split:down
+
+notify-on-command-finish-after = 5s
+
+link-url = true
+link-previews = true
+window-theme = dark
