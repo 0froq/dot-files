@@ -8,8 +8,7 @@
         "opencode/big-pickle"
       ],
       "ultrawork": {
-        // "model": "kimi-for-coding/k2p5"
-        "model": "github-copilot/gpt-5.4",
+        "model": "kimi-for-coding/k2p5",
         "fallback_models": [
           "kimi-for-coding/k2p5"
         ]
@@ -109,7 +108,7 @@
       "model": "google/gemini-3.1-pro-preview",
       "variant": "high",
       "fallback_models": [
-        "github-copilot/gemini-3.1-pro-preview",
+        "github-copilot/gemini-3.1-pro-preview"
       ]
     },
 
