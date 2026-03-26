@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # File Name: .zshrc
-# Last Modified: 2026-03-24 15:41:48
-# Line Count: 274
+# Last Modified: 2026-03-26 16:25:16
+# Line Count: 311
 #
 # Main Zsh Configuration
 
@@ -27,6 +27,24 @@ export LS_COLORS=""
 export LS_COLORS="di=1;97:fi=37:ln=37:*=37\
 "
 
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --preview "bat --color=always --style=plain {}" --preview-window "~3"
+  --preview-window "right,60%,border-left,+{2}+3/3,~3"
+  --color=fg:-1,fg+:#fff9f5,bg:-1,bg+:#272727
+  --color=hl:#60b89a,hl+:#9adcc0,info:#6f6d6c,marker:#6fa8f0
+  --color=prompt:#fff9f5,spinner:#b7b3b0,pointer:#fff9f5,header:#fff9f5
+  --color=border:#272727,preview-label:#68f4df,label:#826363,query:#fff9f5
+  --border="sharp" --border-label=""
+  --marker="*" --pointer="▌" --separator="─" --scrollbar="│"
+  --layout="reverse" --info="right"
+  --height=40%
+  '
+
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target,.sisyphus
+  --preview 'tree -C {}'
+  "
+
 # PATH modifications (order matters!)
 PATH="$HOME/.cargo/bin:$PATH"
 PATH="$HOME/.rvm/bin:$PATH"
@@ -38,8 +56,8 @@ PATH="/usr/local/lib:$PATH"
 
 # Dynamic PATH (pnpm)
 case "$PATH" in
-*"$PNPM_HOME"*) ;;
-*) export PATH="$PNPM_HOME:$PATH" ;;
+  *"$PNPM_HOME"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
 # =============================================================================
@@ -124,6 +142,23 @@ zstyle ':completion:*' menu select
 # Prompt: Starship
 eval "$(starship init zsh)"
 
+# FZF: Fuzzy finder (if installed)
+source <(fzf --zsh)
+
+# Custom fzf-based file search with preview
+w() {
+  #!/usr/bin/env bash
+
+  RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+  INITIAL_QUERY="${*:-}"
+  fzf --ansi --disabled --query "$INITIAL_QUERY" \
+    --bind "start:reload:$RG_PREFIX {q} || true" \
+    --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+    --delimiter : \
+    --preview 'bat --color=always --style=plain {1} --highlight-line {2}' \
+    --bind 'enter:become(nvim {1} +{2})'
+}
+
 # =============================================================================
 # 6. TOOLS & PACKAGE MANAGERS INITIALIZATION
 # =============================================================================
@@ -138,7 +173,7 @@ add-zsh-hook chpwd chpwd_update_title
 
 # List directory contents after changing directory
 chpwd_ls() {
-  eza --color=always --no-time --no-user -T
+  eza --color=always --no-time --no-user
 }
 
 add-zsh-hook chpwd chpwd_ls
@@ -157,13 +192,13 @@ eval "$(thefuck --alias)"
 [ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X"
 
 # Yazi
-function y() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  command yazi "$@" --cwd-file="$tmp"
-  IFS= read -r -d '' cwd <"$tmp"
-  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
-  rm -f -- "$tmp"
-}
+# function y() {
+#   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+#   command yazi "$@" --cwd-file="$tmp"
+#   IFS= read -r -d '' cwd <"$tmp"
+#   [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+#   rm -f -- "$tmp"
+# }
 
 # =============================================================================
 # 7. ALIASES & FUNCTIONS
@@ -220,6 +255,8 @@ alias ls='eza \
 --no-user \
 '
 
+alias oc="opencode"
+
 # Semantic anchors
 typeset -gA J
 J[.]="$HOME/.config"
@@ -229,24 +266,24 @@ J[2]="$HOME/2_areas"
 J[3]="$HOME/3_resources"
 J[c]="$HOME/2_areas/knowledge_management/blog/docs/corpus"
 
-# o(open, cd)
-o() { builtin cd -- "${J[$1]:-$HOME}/${2:-}"; }
+# g(go, cd)
+g() { builtin cd -- "${J[$1]:-$HOME}/${2:-}"; }
 
 # v(nvim)
 v() {
   local key=$1
   shift
-  o "$key"
+  g "$key"
   nvim "$@"
 }
 
-ov() { o v "$@"; }
-vv() { v v "$@"; }
-o.() { o . "$@"; }
-v.() { v . "$@"; }
+# Nav to parent directory
+gg() { builtin cd ../; }
+
+alias f='fzf'
 
 # source ~/.zshrc
-alias .z='exec zsh'
+alias zz='exec zsh'
 
 # Git shortcuts
 alias gs='git status -sb'
