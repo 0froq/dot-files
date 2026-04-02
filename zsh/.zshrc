@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # File Name: .zshrc
-# Last Modified: 2026-03-26 16:25:16
-# Line Count: 311
+# Last Modified: 2026-04-02 12:36:32
+# Line Count: 316
 #
 # Main Zsh Configuration
 
@@ -17,7 +17,7 @@ export CORPUS_DIR="$HOME/2_areas/knowledge_management/blog/docs/corpus"
 export ZOTERO_BIB_FILE="$HOME/3_resources/research/refs/zotero.bib"
 export AIHUB_MIX_API_KEY="sk-19voXIXyGAZWDfRS0b0aAeA9692d4040A6B3Ec10F143B10b"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -46,13 +46,14 @@ export FZF_ALT_C_OPTS="
   "
 
 # PATH modifications (order matters!)
+PATH="$HOME/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
 PATH="$HOME/.rvm/bin:$PATH"
 PATH="$HOME/.juliaup/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
-PATH="/opt/homebrew/bin:$PATH"
+# PATH="/opt/homebrew/bin:$PATH"
 PATH="/usr/local/lib:$PATH"
-# PATH="/Applications/WezTerm.app/Contents/MacOS:$PATH"
+PATH="/usr/local/bin:$PATH"
 
 # Dynamic PATH (pnpm)
 case "$PATH" in
@@ -129,6 +130,9 @@ bindkey -e
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^X^E' edit-command-line
+
+bindkey '^U' undefined-key
+bindkey -r '^U'
 
 # =============================================================================
 # 5. COMPLETION & PROMPT
@@ -256,6 +260,7 @@ alias ls='eza \
 '
 
 alias oc="opencode"
+alias nvim='~/bin/nvim-0.11.7/bin/nvim'
 
 # Semantic anchors
 typeset -gA J
