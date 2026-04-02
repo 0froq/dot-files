@@ -1,8 +1,8 @@
 ---
-title: {title}
+title: '@{citekey}: {title}'
 created: {date:%Y-%m-%d}
 status: probe
-last_modified: 2026-03-26 14:04:53
+last_modified: {date:%Y-%m-%d}
 lang: en
 ---
 
