@@ -194,30 +194,6 @@
     }
   },
 
-  // "skills": {
-  //   "sources": [
-  //     {"path": "./my-skills", "recursive": true},
-  //     "https://example.com/skill.yaml"
-  //   ],
-  //   "enable": ["my-skill"],
-  //   "disable": ["other-skill"],
-  //   "my-skill": {
-  //     "description": "What it does",
-  //     "template": "Custom prompt template",
-  //     "from": "source-file.ts",
-  //     "model": "custom/model",
-  //     "agent": "custom-agent",
-  //     "subtask": true,
-  //     "argument-hint": "usage hint",
-  //     "license": "MIT",
-  //     "compatibility": ">= 3.0.0",
-  //     "metadata": { "author": "Your Name" },
-  //     "allowed-tools": ["read", "bash"]
-  //   }
-  // },
-
-  // "disabled_skills": ["git-master"],
-
   "experimental": {
     "aggressive_truncation": true,
     "task_system": true
