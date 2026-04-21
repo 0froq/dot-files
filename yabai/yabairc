@@ -62,6 +62,7 @@ yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^CleanShot X$" manage=off
 yabai -m rule --add app="^Wechat$" manage=off
 yabai -m rule --add app="^微信$" manage=off
+yabai -m rule --add app="^Zotero$" title!="我的文库 - Zotero" manage=off
 
 # SketchyBar integration - send space change signals
 yabai -m signal --add event=space_changed action="sketchybar --trigger space_change"

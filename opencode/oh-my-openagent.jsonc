@@ -1,20 +1,15 @@
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/dev/assets/oh-my-opencode.schema.json",
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
   "agents": {
-
     "sisyphus": {
-      "model": "kimi-for-coding/k2p5",
+      "model": "opencode-go/kimi-k2.5",
       "fallback_models": [
         "opencode/big-pickle"
       ],
       "ultrawork": {
-        "model": "kimi-for-coding/k2p5",
-        "fallback_models": [
-          "kimi-for-coding/k2p5"
-        ]
+        "model": "opencode-go/kimi-k2.5"
       }
     },
-
     "hephaestus": {
       "model": "github-copilot/gpt-5.3-codex",
       "variant": "medium",
@@ -22,7 +17,6 @@
         "github-copilot/gpt-5.2-codex"
       ]
     },
-
     "prometheus": {
       "model": "github-copilot/gpt-5.4",
       "variant": "high",
@@ -30,11 +24,10 @@
         "github-copilot/gpt-5.2",
         "google/gemini-3.1-pro-preview",
         "github-copilot/gemini-3.1-pro-preview",
-        "kimi-for-coding/k2p5"
+        "opencode-go/kimi-k2.5"
       ],
       "prompt_append": "Leverage deep & quick agents heavily, always in parallel."
     },
-
     "oracle": {
       "model": "github-copilot/gpt-5.4",
       "variant": "high",
@@ -44,7 +37,6 @@
         "github-copilot/gemini-3.1-pro-preview"
       ]
     },
-
     "librarian": {
       "model": "opencode/minimax-m2.5-free",
       "fallback_models": [
@@ -53,8 +45,7 @@
         "opencode/big-pickle"
       ]
     },
-
-    "explore":   {
+    "explore": {
       "model": "opencode/minimax-m2.5-free",
       "fallback_models": [
         "github-copilot/grok-code-fast-1",
@@ -62,9 +53,8 @@
         "opencode/gpt-5-nano"
       ]
     },
-
     "multimodal-looker": {
-      "model": "kimi-for-coding/k2p5",
+      "model": "opencode-go/kimi-k2.5",
       "fallback_models": [
         "google/gemini-flash-latest",
         "github-copilot/gemini-3-flash-preview",
@@ -72,9 +62,8 @@
         "github-copilot/gpt-5.2"
       ]
     },
-
     "metis": {
-      "model": "kimi-for-coding/k2p5",
+      "model": "opencode-go/kimi-k2.5",
       "fallback_models": [
         "github-copilot/gpt-5.4",
         "github-copilot/gpt-5.2",
@@ -82,7 +71,6 @@
         "github-copilot/gemini-3.1-pro-preview"
       ]
     },
-
     "momus": {
       "model": "github-copilot/gpt-5.4",
       "variant": "medium",
@@ -92,7 +80,6 @@
         "github-copilot/gemini-3.1-pro-preview"
       ]
     },
-
     "atlas": {
       "model": "github-copilot/gpt-5.4",
       "fallback_models": [
@@ -100,9 +87,7 @@
         "github-copilot/claude-sonnet-4.6"
       ]
     }
-
   },
-
   "categories": {
     "visual-engineering": {
       "model": "google/gemini-3.1-pro-preview",
@@ -111,7 +96,6 @@
         "github-copilot/gemini-3.1-pro-preview"
       ]
     },
-
     "ultrabrain": {
       "model": "github-copilot/gpt-5.3-codex",
       "variant": "xhigh",
@@ -119,7 +103,6 @@
         "github-copilot/gpt-5.2-codex"
       ]
     },
-
     "deep": {
       "model": "github-copilot/gpt-5.3-codex",
       "variant": "medium",
@@ -127,53 +110,46 @@
         "github-copilot/gpt-5.2-codex"
       ]
     },
-
     "artistry": {
       "model": "google/gemini-3.1-pro-preview",
       "variant": "high",
       "fallback_models": [
-        "github-copilot/gemini-3.1-pro-preview",
+        "github-copilot/gemini-3.1-pro-preview"
       ]
     },
-
     "quick": {
       "model": "opencode/gpt-5-nano",
       "fallback_models": [
         "opencode/minimax-m2.5-free"
       ]
     },
-
     "unspecified-low": {
-      "model": "kimi-for-coding/k2p5",
+      "model": "opencode-go/kimi-k2.5",
       "fallback_models": [
         "github-copilot/gpt-5.4",
         "github-copilot/gpt-5.2"
       ]
     },
-
     "unspecified-high": {
-      "model": "kimi-for-coding/k2p5",
+      "model": "opencode-go/kimi-k2.5",
       "fallback_models": [
         "github-copilot/gpt-5.4",
         "github-copilot/gpt-5.2"
       ]
     },
-
     "writing": {
-      "model": "kimi-for-coding/k2p5",
+      "model": "opencode-go/kimi-k2.5",
       "fallback_models": [
         "github-copilot/gpt-5.4",
         "github-copilot/gpt-5.2"
       ]
     },
-
     "git": {
       "model": "opencode/gpt-5-nano",
       "description": "All git operations",
       "prompt_append": "Focus on atomic commits, clear messages, and safe operations."
     }
   },
-
   "background_task": {
     "providerConcurrency": {
       "google": 10,
@@ -185,20 +161,80 @@
       "opencode/gpt-5-nano": 20
     }
   },
-
   "sisyphus": {
     "tasks": {
-      "enabled": true,
       "storage_path": ".sisyphus/tasks",
       "claude_code_compat": false
     }
   },
-
-  "experimental": {
-    "aggressive_truncation": true,
-    "task_system": true
-  },
   "tmux": {
-    "enabled": true
+    "enabled": true,
+    "layout": "tiled",
+    "main_pane_size": 60,
+    "main_pane_min_width": 120,
+    "agent_pane_min_width": 40,
+    "isolation": "window"
+  },
+  "sisyphus_agent": {
+    "disabled": false,
+    "default_builder_enabled": false,
+    "planner_enabled": true,
+    "replace_plan": true
+  },
+  "runtime_fallback": {
+    "enabled": true,
+    "retry_on_errors": [
+      400,
+      429,
+      503,
+      529
+    ],
+    "max_fallback_attempts": 3,
+    "cooldown_seconds": 60,
+    "timeout_seconds": 30,
+    "notify_on_fallback": true
+  },
+  "hashline_edit": true,
+  "experimental": {
+    "truncate_all_tool_outputs": false,
+    "aggressive_truncation": true,
+    "auto_resume": true,
+    "disable_omo_env": false,
+    "task_system": true,
+    "dynamic_context_pruning": {
+      "enabled": false,
+      "notification": "detailed",
+      "turn_protection": {
+        "enabled": true,
+        "turns": 3
+      },
+      "protected_tools": [
+        "task",
+        "todowrite",
+        "todoread",
+        "lsp_rename",
+        "session_read",
+        "session_write",
+        "session_search"
+      ],
+      "strategies": {
+        "deduplication": {
+          "enabled": true
+        },
+        "supersede_writes": {
+          "enabled": true,
+          "aggressive": false
+        },
+        "purge_errors": {
+          "enabled": true,
+          "turns": 5
+        }
+      }
+    }
+  },
+  "git_master": {
+    "commit_footer": true,
+    "include_co_authored_by": true,
+    "git_env_prefix": "GIT_MASTER=1"
   }
 }
