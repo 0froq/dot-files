@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "opencode-go/kimi-k2.5",
+      "model": "opencode-go/kimi-k2.6",
       "fallback_models": [
         "opencode/big-pickle"
       ],
       "ultrawork": {
-        "model": "opencode-go/kimi-k2.5"
+        "model": "opencode-go/kimi-k2.6"
       }
     },
     "hephaestus": {
@@ -24,7 +24,7 @@
         "github-copilot/gpt-5.2",
         "google/gemini-3.1-pro-preview",
         "github-copilot/gemini-3.1-pro-preview",
-        "opencode-go/kimi-k2.5"
+        "opencode-go/kimi-k2.6"
       ],
       "prompt_append": "Leverage deep & quick agents heavily, always in parallel."
     },
@@ -54,7 +54,7 @@
       ]
     },
     "multimodal-looker": {
-      "model": "opencode-go/kimi-k2.5",
+      "model": "opencode-go/kimi-k2.6",
       "fallback_models": [
         "google/gemini-flash-latest",
         "github-copilot/gemini-3-flash-preview",
@@ -63,7 +63,7 @@
       ]
     },
     "metis": {
-      "model": "opencode-go/kimi-k2.5",
+      "model": "opencode-go/kimi-k2.6",
       "fallback_models": [
         "github-copilot/gpt-5.4",
         "github-copilot/gpt-5.2",
@@ -124,21 +124,21 @@
       ]
     },
     "unspecified-low": {
-      "model": "opencode-go/kimi-k2.5",
+      "model": "opencode-go/kimi-k2.6",
       "fallback_models": [
         "github-copilot/gpt-5.4",
         "github-copilot/gpt-5.2"
       ]
     },
     "unspecified-high": {
-      "model": "opencode-go/kimi-k2.5",
+      "model": "opencode-go/kimi-k2.6",
       "fallback_models": [
         "github-copilot/gpt-5.4",
         "github-copilot/gpt-5.2"
       ]
     },
     "writing": {
-      "model": "opencode-go/kimi-k2.5",
+      "model": "opencode-go/kimi-k2.6",
       "fallback_models": [
         "github-copilot/gpt-5.4",
         "github-copilot/gpt-5.2"
