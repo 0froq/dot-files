@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # File Name: .zshrc
-# Last Modified: 2026-04-02 12:36:32
-# Line Count: 316
+# Last Modified: 2026-04-22 23:21:27
+# Line Count: 317
 #
 # Main Zsh Configuration
 
@@ -19,6 +19,7 @@ export AIHUB_MIX_API_KEY="sk-19voXIXyGAZWDfRS0b0aAeA9692d4040A6B3Ec10F143B10b"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export EZA_CONFIG_DIR="$HOME/.config/eza"
+export OPENCODE_SERVER_PASSWORD="oQ939393"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
